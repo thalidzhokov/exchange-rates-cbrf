@@ -19,10 +19,12 @@ class ExchangeRatesCBRF
     public $rates = array('byChCode' => array(), 'byCode' => array());
 
     /**
+     * ExchangeRatesCBRF constructor.
+     *
      * This method creates a connection to webservice of Central Bank of Russia
      * and obtains exchange rates, parse it and fills $rates property
      *
-     * @param string $date The date on which exchange rates will be obtained
+     * @param string $date The date on which exchange rates will be obtained (http://php.net/manual/ru/datetime.formats.date.php)
      */
     public function __construct($date = '')
     {
@@ -62,7 +64,6 @@ class ExchangeRatesCBRF
             $rtn = isset($this->rates['byChCode'][$code])
                 ? $this->rates['byChCode'][$code]
                 : false;
-
         } else if (is_numeric($code)) {
             $rtn = isset($this->rates['byCode'][$code])
                 ? $this->rates['byCode'][$code]
