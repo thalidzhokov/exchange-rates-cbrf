@@ -5,7 +5,7 @@
 2. SOAP and SimpleXML
 
 ## Using
-Примеры использования класса ExchangeRatesCBRF для получения курсов валют с ЦБ РФ
+Examples of using ExchangeRatesCBRF Class to get exchange rates of the Central Bank of Russia
 
 
 __Example 1__ \
