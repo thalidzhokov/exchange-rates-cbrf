@@ -16,7 +16,7 @@ _$rates = new ExchangeRatesCBRF("2015-05-25");_ \
 _echo $rates->GetRate("UAH");_
 
 
-__Example 2__ \ 
+__Example 2__ \
 Get cross-rate of the US Dollar to Euro on 26.06.2015 \
 _<?php_ \
 _require_once("ExchangeRatesCBRF.php");_ \
