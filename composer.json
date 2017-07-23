@@ -3,6 +3,7 @@
   "description": "ExchangeRatesCBRF Class to get exchange rates of the Central Bank of Russia",
   "keywords": [
     "exchange rates",
+    "currencies",
     "cbr",
     "cbrf",
     "central bank of russia"
