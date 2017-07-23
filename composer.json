@@ -1,7 +1,22 @@
 {
   "name": "thalidzhokov/exchange-rates-cbrf",
   "description": "ExchangeRatesCBRF Class to get exchange rates of the Central Bank of Russia",
+  "keywords": [
+    "Exchange Rates",
+    "CBRF"
+  ],
   "require": {
-    "php": "^5.0"
-  }
+    "php": "^5.0 || ^7.0",
+    "ext-soap": "*",
+    "ext-simplexml": "*"
+  },
+  "license": "GNU General Public License v3.0",
+  "authors": [
+    {
+      "name": "Aleksey Vaganov"
+    },
+    {
+      "name": "Albert Thalidzhokov"
+    }
+  ]
 }
