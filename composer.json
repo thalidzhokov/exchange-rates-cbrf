@@ -2,10 +2,10 @@
   "name": "thalidzhokov/exchange-rates-cbrf",
   "description": "ExchangeRatesCBRF Class to get exchange rates of the Central Bank of Russia",
   "keywords": [
-    "Exchange Rates",
-    "CBRF",
-    "CBR",
-    "Central Bank of Russia"
+    "exchange rates",
+    "cbr",
+    "cbrf",
+    "central bank of russia"
   ],
   "require": {
     "php": "^5.0 || ^7.0",
