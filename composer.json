@@ -1,0 +1,7 @@
+{
+  "name": "thalidzhokov/exchange-rates-cbrf",
+  "description": "ExchangeRatesCBRF Class to get exchange rates of the Central Bank of Russia",
+  "require": {
+    "php": "^5.3"
+  }
+}
