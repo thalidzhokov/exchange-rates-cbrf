@@ -3,7 +3,9 @@
   "description": "ExchangeRatesCBRF Class to get exchange rates of the Central Bank of Russia",
   "keywords": [
     "Exchange Rates",
-    "CBRF"
+    "CBRF",
+    "CBR",
+    "Central Bank of Russia"
   ],
   "require": {
     "php": "^5.0 || ^7.0",
