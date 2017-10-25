@@ -13,7 +13,7 @@ composer require thalidzhokov/exchange-rates-cbrf
 
 OR include _ExchangeRatesCBRF.php_ in your PHP code
 ```
-include_once PATH_TO_CLASS . 'ExchangeRatesCBRF.php';
+require_once("ExchangeRatesCBRF.php");
 ```
 
 ## Usage
