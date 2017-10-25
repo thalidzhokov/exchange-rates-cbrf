@@ -4,7 +4,19 @@
 1. PHP 5 or greater
 2. SOAP and SimpleXML
 
-## Using
+## Installation
+
+Install via Composer
+```
+composer require thalidzhokov/exchange-rates-cbrf
+```
+
+OR include _ExchangeRatesCBRF.php_ in your PHP code
+```
+include_once PATH_TO_CLASS . 'ExchangeRatesCBRF.php';
+```
+
+## Usage
 Examples of using ExchangeRatesCBRF Class to get exchange rates of the Central Bank of Russia
 
 

@@ -7,7 +7,6 @@
  *
  * @author Aleksey Vaganov, Albert Thalidzhokov
  * @link http://www.idivision.ru/cbrf-exchange-rates-php-class/ OR https://github.com/thalidzhokov/exchange-rates-cbrf
- * @version 2.1
  */
 class ExchangeRatesCBRF
 {
