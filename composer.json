@@ -16,12 +16,26 @@
   "suggest": {
     "ext-openssl": "Needed to load the CBR WSDL over HTTPS"
   },
+  "require-dev": {
+    "phpunit/phpunit": "^11.5"
+  },
+  "archive": {
+    "exclude": [
+      "/tests",
+      "/phpunit.xml.dist",
+      "/.github",
+      "/.vscode"
+    ]
+  },
   "autoload": {
     "classmap": [
       "ExchangeRatesCBRF.php"
     ]
   },
   "license": "GPL-3.0-or-later",
+  "scripts": {
+    "test": "phpunit"
+  },
   "authors": [
     {
       "name": "Aleksey Vaganov"
