@@ -6,7 +6,7 @@
  * The PHP class to gets exchange currency rates from webservice of Central Bank of Russia
  *
  * @author Aleksey Vaganov, Albert Thalidzhokov
- * @link http://www.idivision.ru/cbrf-exchange-rates-php-class/ OR https://github.com/thalidzhokov/exchange-rates-cbrf
+ * @link https://github.com/thalidzhokov/exchange-rates-cbrf
  */
 class ExchangeRatesCBRF
 {
