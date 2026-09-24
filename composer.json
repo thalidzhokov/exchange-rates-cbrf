@@ -9,9 +9,12 @@
     "central bank of russia"
   ],
   "require": {
-    "php": "^5.0 || ^7.0",
+    "php": "^5.4 || ^7.0 || ^8.0",
     "ext-soap": "*",
     "ext-simplexml": "*"
+  },
+  "suggest": {
+    "ext-openssl": "Needed to load the CBR WSDL over HTTPS"
   },
   "autoload": {
     "classmap": [

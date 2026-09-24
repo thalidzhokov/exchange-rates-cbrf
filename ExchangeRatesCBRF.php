@@ -27,24 +27,81 @@ class ExchangeRatesCBRF
      */
     public function __construct($date = '')
     {
-        $date = empty($date)
-            ? date('Y-m-d')
-            : date('Y-m-d', strtotime($date));
+        $date = self::normalizeDate($date);
+        $client = self::createClient();
 
-        $client = new SoapClient("http://www.cbr.ru/DailyInfoWebServ/DailyInfo.asmx?WSDL");
+        $curs = $client->GetCursOnDate(array('On_date' => $date));
+        if (!isset($curs->GetCursOnDateResult->any)) {
+            throw new RuntimeException('Empty response from CBR');
+        }
 
-        $curs = $client->GetCursOnDate(array("On_date" => $date));
         $rates = new SimpleXMLElement($curs->GetCursOnDateResult->any);
+        if (!isset($rates->ValuteData->ValuteCursOnDate)) {
+            throw new RuntimeException('No exchange rates for ' . $date);
+        }
 
         foreach ($rates->ValuteData->ValuteCursOnDate as $rate) {
-            $r = (float)$rate->Vcurs / (int)$rate->Vnom;
-            $this->rates['byChCode'][(string)$rate->VchCode] = $r;
+            $nominal = (int)$rate->Vnom;
+            if ($nominal === 0) {
+                continue;
+            }
+            $r = (float)$rate->Vcurs / $nominal;
+            $this->rates['byChCode'][trim((string)$rate->VchCode)] = $r;
             $this->rates['byCode'][(int)$rate->Vcode] = $r;
         }
 
         // Adding an exchange rate of Russian Ruble
         $this->rates['byChCode']['RUB'] = 1;
         $this->rates['byCode'][643] = 1;
+    }
+
+    /**
+     * Calendar date in Moscow: CBR publishes rates for that timezone.
+     *
+     * @param string $date
+     * @return string
+     */
+    private static function normalizeDate($date)
+    {
+        $tz = new DateTimeZone('Europe/Moscow');
+        if ($date === '' || $date === null) {
+            $date = 'now';
+        }
+
+        $dt = date_create($date, $tz);
+        if ($dt === false) {
+            throw new InvalidArgumentException('Invalid date');
+        }
+
+        return $dt->format('Y-m-d');
+    }
+
+    /**
+     * HTTPS is the current endpoint. HTTP remains as a fallback when OpenSSL is unavailable.
+     *
+     * @return SoapClient
+     */
+    private static function createClient()
+    {
+        $urls = array(
+            'https://www.cbr.ru/DailyInfoWebServ/DailyInfo.asmx?WSDL',
+            'http://www.cbr.ru/DailyInfoWebServ/DailyInfo.asmx?WSDL',
+        );
+        $options = array(
+            'exceptions' => true,
+            'connection_timeout' => 10,
+        );
+
+        $last = null;
+        foreach ($urls as $url) {
+            try {
+                return new SoapClient($url, $options);
+            } catch (SoapFault $e) {
+                $last = $e;
+            }
+        }
+
+        throw $last;
     }
 
     /**
@@ -58,14 +115,20 @@ class ExchangeRatesCBRF
     {
         $rtn = false;
 
-        if (is_string($code)) {
+        if (is_int($code) || (is_string($code) && preg_match('/^\d+$/', trim($code)))) {
+            $num = (int)$code;
+            $rtn = isset($this->rates['byCode'][$num])
+                ? $this->rates['byCode'][$num]
+                : false;
+        } else if (is_string($code)) {
             $code = strtoupper(trim($code));
             $rtn = isset($this->rates['byChCode'][$code])
                 ? $this->rates['byChCode'][$code]
                 : false;
         } else if (is_numeric($code)) {
-            $rtn = isset($this->rates['byCode'][$code])
-                ? $this->rates['byCode'][$code]
+            $num = (int)$code;
+            $rtn = isset($this->rates['byCode'][$num])
+                ? $this->rates['byCode'][$num]
                 : false;
         }
 

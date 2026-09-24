@@ -1,8 +1,9 @@
 # PHP Class ExchangeRatesCBRF
 
 ## Requirements
-1. PHP 5 or greater
+1. PHP 5.4, 7 or 8
 2. SOAP and SimpleXML
+3. OpenSSL, to reach the bank over HTTPS. Without it the class falls back to HTTP.
 
 ## Installation
 
