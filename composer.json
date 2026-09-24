@@ -22,9 +22,7 @@
   "archive": {
     "exclude": [
       "/tests",
-      "/phpunit.xml.dist",
-      "/.github",
-      "/.vscode"
+      "/phpunit.xml.dist"
     ]
   },
   "autoload": {
