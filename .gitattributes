@@ -1,5 +1,10 @@
 /tests export-ignore
 /phpunit.xml.dist export-ignore
 /.github export-ignore
-/.vscode export-ignore
 /.gitignore export-ignore
+/.gitattributes export-ignore
+/.phpunit.cache export-ignore
+/.vscode export-ignore
+/.idea export-ignore
+/.phpunit.xml.dist export-ignore
+/.phpunit.xml.dist export-ignore
