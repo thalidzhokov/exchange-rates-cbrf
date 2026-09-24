@@ -1,12 +1,2 @@
-# Tests
 /tests export-ignore
 /phpunit.xml.dist export-ignore
-/.phpunit.cache export-ignore
-/.phpunit.xml.dist export-ignore
-# Git
-/.github export-ignore
-/.gitignore export-ignore
-/.gitattributes export-ignore
-# IDEs
-/.vscode export-ignore
-/.idea export-ignore
