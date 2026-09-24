@@ -1,12 +1,20 @@
 {
   "name": "thalidzhokov/exchange-rates-cbrf",
-  "description": "ExchangeRatesCBRF Class to get exchange rates of the Central Bank of Russia",
+  "description": "PHP class for daily exchange rates of the Central Bank of Russia by ISO 4217 alphabetic and numeric codes, with the ruble and cross rates",
   "keywords": [
     "exchange rates",
+    "currency rates",
     "currencies",
     "cbr",
     "cbrf",
-    "central bank of russia"
+    "cbr.ru",
+    "central bank of russia",
+    "bank of russia",
+    "ruble",
+    "rub",
+    "cross rate",
+    "iso 4217",
+    "daily rates"
   ],
   "require": {
     "php": "^5.4 || ^7.0 || ^8.0",
